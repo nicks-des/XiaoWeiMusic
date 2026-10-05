@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+!.env.electron
+
+# Build output
+dist/
+release/
+frontend-dist/
+dist-exe/
+win-unpacked/
+native/build/
+
+# Uploaded media
+backend/uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,88 @@
+.favorites-page {
+  max-width: 900px;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.favorites-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fav-num {
+  width: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #b3b3b3;
+  flex-shrink: 0;
+}
+
+.fav-song-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.fav-cover {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.fav-title {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-artist {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.fav-genre {
+  width: 80px;
+  text-align: center;
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.fav-heart {
+  font-size: 18px;
+  color: #1db954;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.fav-heart:hover {
+  transform: scale(1.2);
+}
+
+.fav-play-icon {
+  font-size: 20px;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.fav-play-icon:hover {
+  color: #1db954;
+}

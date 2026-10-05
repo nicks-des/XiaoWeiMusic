@@ -1,0 +1,498 @@
+/* ============================================
+   扫码登录弹窗样式
+   ============================================ */
+
+.qr-login-modal .ant-modal-content {
+  background: linear-gradient(180deg, #16161e 0%, #0f0f17 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.qr-login-modal .ant-modal-body {
+  padding: 0;
+}
+
+.qr-login-modal .ant-modal-close {
+  color: rgba(255, 255, 255, 0.5);
+  top: 18px;
+  right: 18px;
+}
+
+.qr-login-modal .ant-modal-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── 顶部 ── */
+.qr-modal-header {
+  padding: 28px 32px 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.qr-modal-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.qr-modal-title-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1db954, #1ed760);
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.35);
+}
+
+.qr-modal-subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── 平台 Tab ── */
+.qr-platform-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 32px;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.qr-platform-tab {
+  --accent: #1db954;
+  --bg-glow: rgba(29, 185, 84, 0.18);
+  flex: 1;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.qr-platform-tab:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.qr-platform-tab.active {
+  background: linear-gradient(180deg, var(--bg-glow) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--bg-glow);
+}
+
+.qr-platform-tab-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.qr-platform-tab-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.qr-platform-tab.active .qr-platform-tab-label {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── 主体 ── */
+.qr-modal-body {
+  padding: 24px 32px 28px;
+  min-height: 460px;
+}
+
+/* ── 扫码面板 ── */
+.qr-panel {
+  --accent: #1db954;
+  --bg-glow: rgba(29, 185, 84, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: qrFadeIn 0.4s ease;
+}
+
+@keyframes qrFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.qr-panel-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.qr-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.qr-panel-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.qr-panel-title-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.qr-panel-title-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* ── 二维码区 ── */
+.qr-stage {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 60px 0;
+}
+
+.qr-loading-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+.qr-image-wrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 16px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 8px 32px var(--bg-glow), 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: qrPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes qrPopIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  { opacity: 1; transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.qr-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 四角装饰 */
+.qr-image-corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.qr-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+}
+
+.qr-corner--tl { top: 4px;    left: 4px;    border-top-width: 3px;    border-left-width: 3px;    border-top-left-radius: 8px; }
+.qr-corner--tr { top: 4px;    right: 4px;   border-top-width: 3px;    border-right-width: 3px;   border-top-right-radius: 8px; }
+.qr-corner--bl { bottom: 4px; left: 4px;    border-bottom-width: 3px; border-left-width: 3px;    border-bottom-left-radius: 8px; }
+.qr-corner--br { bottom: 4px; right: 4px;   border-bottom-width: 3px; border-right-width: 3px;   border-bottom-right-radius: 8px; }
+
+/* 扫码成功后遮罩 */
+.qr-success-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  animation: qrFadeIn 0.4s ease;
+}
+
+.qr-success-icon {
+  font-size: 64px;
+  color: #52c41a;
+  filter: drop-shadow(0 0 16px rgba(82, 196, 26, 0.5));
+}
+
+/* 状态条 */
+.qr-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.qr-tips {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.qr-help {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* 过期/失败 */
+.qr-expired {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+  animation: qrFadeIn 0.4s ease;
+}
+
+.qr-expired-icon {
+  font-size: 56px;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+
+.qr-expired-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.qr-refresh-btn {
+  min-width: 140px;
+  height: 40px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 底部 */
+.qr-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.qr-footer .ant-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.qr-footer .ant-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.qr-footer-tip {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 扫码扫描动画 */
+.qr-image-wrap::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--accent);
+  animation: qrScan 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes qrScan {
+  0%   { top: 16px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: calc(100% - 18px); opacity: 0; }
+}
+
+/* 绑定确认 */
+.qr-bind-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 30px 0;
+  animation: qrFadeIn 0.4s ease;
+}
+
+.qr-bind-success-icon {
+  font-size: 72px;
+  color: #52c41a;
+  filter: drop-shadow(0 0 24px rgba(82, 196, 26, 0.4));
+  animation: qrBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes qrBounceIn {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.qr-bind-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.qr-bind-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.qr-bind-desc b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.qr-bind-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.qr-bind-actions .ant-btn {
+  min-width: 120px;
+  height: 42px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.qr-bind-actions .ant-btn:first-child {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.qr-bind-actions .ant-btn:first-child:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* 响应式 */
+@media (max-width: 540px) {
+  .qr-login-modal {
+    max-width: calc(100vw - 24px);
+  }
+
+  .qr-login-modal .ant-modal-content {
+    border-radius: 16px;
+  }
+
+  .qr-modal-header {
+    padding: 22px 20px 16px;
+  }
+
+  .qr-platform-tabs {
+    padding: 12px 20px;
+  }
+
+  .qr-platform-tab {
+    min-width: 72px;
+    padding: 10px 6px;
+  }
+
+  .qr-platform-tab-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .qr-modal-body {
+    padding: 20px 20px 24px;
+    min-height: 420px;
+  }
+
+  .qr-image-wrap {
+    width: 200px;
+    height: 200px;
+  }
+
+  .qr-bind-title {
+    font-size: 18px;
+  }
+}

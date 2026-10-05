@@ -1,0 +1,854 @@
+/* ══════════════════════════════════════════
+   会员设置页面 - 品牌化平台卡片
+   ══════════════════════════════════════════ */
+
+/* ── CSS 变量 ── */
+:root {
+  --ne-color: #ec4141;
+  --ne-glow: rgba(236, 65, 65, 0.25);
+  --qq-color: #31c27c;
+  --qq-glow: rgba(49, 194, 124, 0.25);
+  --kg-color: #2e6cf6;
+  --kg-glow: rgba(46, 108, 246, 0.25);
+  --kw-color: #ff8a00;
+  --kw-glow: rgba(255, 138, 0, 0.25);
+}
+
+/* ── 页面容器 ── */
+.settings-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ── 顶部 Header ── */
+.settings-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 32px 36px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.settings-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(236, 65, 65, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(49, 194, 124, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 50% 30%, rgba(46, 108, 246, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.settings-header .header-icon {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  z-index: 1;
+}
+
+.settings-header h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.settings-header .ant-typography {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════
+   平台卡片 - 新设计
+   ══════════════════════════════════════════ */
+.settings-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.platform-card {
+  display: flex;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.platform-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  transform: translateY(-3px);
+}
+
+/* ── 左侧品牌色条 ── */
+.card-accent {
+  width: 5px;
+  flex-shrink: 0;
+  transition: width 0.3s;
+}
+
+.platform-card:hover .card-accent {
+  width: 7px;
+}
+
+.platform-card.netease .card-accent {
+  background: linear-gradient(180deg, var(--ne-color), #ff6b6b, var(--ne-color));
+}
+
+.platform-card.qqmusic .card-accent {
+  background: linear-gradient(180deg, var(--qq-color), #6dd5a0, var(--qq-color));
+}
+
+.platform-card.kugou .card-accent {
+  background: linear-gradient(180deg, var(--kg-color), #6da3ff, var(--kg-color));
+}
+
+.platform-card.kuwo .card-accent {
+  background: linear-gradient(180deg, var(--kw-color), #ffb366, var(--kw-color));
+}
+
+/* ── 卡片内容主区域 ── */
+.card-body {
+  flex: 1;
+  padding: 22px 26px 26px;
+  min-width: 0;
+}
+
+/* ══════════════════════════════════════════
+   卡片头部 - 大幅提升品牌辨识度
+   ══════════════════════════════════════════ */
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+/* ── 品牌图标 - 更大更有辨识度 ── */
+.platform-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+}
+
+.platform-icon::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 17px;
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.platform-card:hover .platform-icon::after {
+  opacity: 0.5;
+}
+
+.ne-icon {
+  background: linear-gradient(135deg, #ec4141, #c62f2f);
+  box-shadow: 0 6px 20px rgba(236, 65, 65, 0.35);
+}
+.ne-icon::after { box-shadow: 0 0 20px rgba(236, 65, 65, 0.4); }
+
+.qqmusic-icon {
+  background: linear-gradient(135deg, #31c27c, #1da863);
+  box-shadow: 0 6px 20px rgba(49, 194, 124, 0.35);
+}
+.qqmusic-icon::after { box-shadow: 0 0 20px rgba(49, 194, 124, 0.4); }
+
+.kugou-icon {
+  background: linear-gradient(135deg, #2e6cf6, #1a4fc0);
+  box-shadow: 0 6px 20px rgba(46, 108, 246, 0.35);
+}
+.kugou-icon::after { box-shadow: 0 0 20px rgba(46, 108, 246, 0.4); }
+
+.kuwo-icon {
+  background: linear-gradient(135deg, #ff8a00, #ff6a00);
+  box-shadow: 0 6px 20px rgba(255, 138, 0, 0.35);
+}
+.kuwo-icon::after { box-shadow: 0 0 20px rgba(255, 138, 0, 0.4); }
+
+/* ── 平台名称和状态 ── */
+.platform-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.platform-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.3px;
+}
+
+.platform-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ── 状态徽章 ── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge.connected {
+  background: rgba(82, 196, 26, 0.08);
+  color: #389e0d;
+  border: 1px solid rgba(82, 196, 26, 0.2);
+}
+
+.status-badge.disconnected {
+  background: rgba(0, 0, 0, 0.04);
+  color: #999;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-badge.connected .status-dot {
+  background: #52c41a;
+  box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.15);
+  animation: pulse-green 2s infinite;
+}
+
+.status-badge.disconnected .status-dot {
+  background: #bfbfbf;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.15); }
+  50%      { box-shadow: 0 0 0 7px rgba(82, 196, 26, 0.04); }
+}
+
+/* ── 退出按钮 ── */
+.logout-btn {
+  opacity: 0.4;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.logout-btn:hover {
+  opacity: 1;
+  background: rgba(255, 77, 79, 0.08) !important;
+}
+
+/* ══════════════════════════════════════════
+   已连接状态
+   ══════════════════════════════════════════ */
+.logged-in-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 0 12px;
+  gap: 8px;
+  border-radius: 14px;
+  margin-top: 4px;
+  position: relative;
+}
+
+.platform-card.netease .logged-in-info {
+  background: linear-gradient(180deg, rgba(236, 65, 65, 0.04) 0%, transparent 100%);
+}
+
+.platform-card.qqmusic .logged-in-info {
+  background: linear-gradient(180deg, rgba(49, 194, 124, 0.04) 0%, transparent 100%);
+}
+
+.platform-card.kugou .logged-in-info {
+  background: linear-gradient(180deg, rgba(46, 108, 246, 0.04) 0%, transparent 100%);
+}
+
+.platform-card.kuwo .logged-in-info {
+  background: linear-gradient(180deg, rgba(255, 138, 0, 0.04) 0%, transparent 100%);
+}
+
+.logged-in-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(82, 196, 26, 0.35);
+  object-fit: cover;
+}
+
+.platform-card.qqmusic .logged-in-info .ant-avatar,
+.platform-card.qqmusic .logged-in-avatar {
+  border-color: rgba(49, 194, 124, 0.35);
+}
+
+.logged-in-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ══════════════════════════════════════════
+   登录方式切换器 - 药丸风格
+   ══════════════════════════════════════════ */
+.method-switcher {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.method-switcher span {
+  flex: 1;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  user-select: none;
+  border-radius: 9px;
+  color: #666;
+  font-weight: 500;
+}
+
+.method-switcher span:hover {
+  color: #333;
+}
+
+.method-switcher span.active {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.method-content {
+  min-height: 100px;
+}
+
+/* ══════════════════════════════════════════
+   扫码绑定区域
+   ══════════════════════════════════════════ */
+.qrcode-method {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1.5px dashed;
+  margin-top: 2px;
+}
+
+.platform-card.netease .qrcode-method {
+  background: rgba(236, 65, 65, 0.03);
+  border-color: rgba(236, 65, 65, 0.2);
+}
+
+.platform-card.qqmusic .qrcode-method {
+  background: rgba(49, 194, 124, 0.03);
+  border-color: rgba(49, 194, 124, 0.2);
+}
+
+.platform-card.kugou .qrcode-method {
+  background: rgba(46, 108, 246, 0.03);
+  border-color: rgba(46, 108, 246, 0.2);
+}
+
+.platform-card.kuwo .qrcode-method {
+  background: rgba(255, 138, 0, 0.03);
+  border-color: rgba(255, 138, 0, 0.2);
+}
+
+.qrcode-method-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+}
+
+.qrcode-method-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.qrcode-method-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+}
+
+.qrcode-method-desc {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════
+   快速登录引导
+   ══════════════════════════════════════════ */
+.quick-guide {
+  padding: 4px 0;
+}
+
+.guide-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.guide-step {
+  flex: 1;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px 16px;
+  border: 1px solid #f0f0f0;
+}
+
+.guide-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  flex-shrink: 0;
+  padding-top: 36px;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.step-content {
+  font-size: 13px;
+}
+
+/* ── 代码块 ── */
+.code-snippet {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-snippet code {
+  color: #ce9178;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 11px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-snippet .copy-btn {
+  color: #888 !important;
+  flex-shrink: 0;
+}
+
+.code-snippet .copy-btn:hover {
+  color: #fff !important;
+}
+
+kbd.kbd {
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #666;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════
+   Cookie / 登录 表单
+   ══════════════════════════════════════════ */
+.cookie-form {
+  padding: 8px 0;
+}
+
+.cookie-textarea {
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  background: #fafafa !important;
+  border-color: #e8e8e8 !important;
+  transition: all 0.2s;
+}
+
+.cookie-textarea:focus {
+  background: #fff !important;
+  border-color: #764ba2 !important;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.08) !important;
+}
+
+.login-form {
+  padding: 8px 0;
+}
+
+.login-input {
+  border-radius: 8px !important;
+}
+
+.login-input.left {
+  border-radius: 8px 0 0 8px !important;
+  width: 50% !important;
+}
+
+.login-input.right {
+  border-radius: 0 8px 8px 0 !important;
+  width: 50% !important;
+}
+
+/* ══════════════════════════════════════════
+   我的绑定 Section
+   ══════════════════════════════════════════ */
+.bindings-section {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px 26px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-title-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.bindings-empty,
+.bindings-loading {
+  padding: 16px 0;
+  text-align: center;
+  color: #999;
+}
+
+.bindings-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.bindings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.binding-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+
+.binding-item:hover {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+.binding-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.binding-platform {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+}
+
+.binding-nickname {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.binding-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.binding-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s;
+}
+
+.binding-row:hover {
+  background: #f5f5f5;
+}
+
+.binding-platform-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.binding-info .ant-typography {
+  display: block;
+}
+
+/* ══════════════════════════════════════════
+   响应式
+   ══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .settings-page {
+    padding: 0 12px 24px;
+  }
+
+  .settings-header {
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+
+  .platform-card {
+    flex-direction: column;
+  }
+
+  .card-accent {
+    width: 100% !important;
+    height: 4px;
+  }
+
+  .platform-card:hover .card-accent {
+    width: 100% !important;
+  }
+
+  .card-body {
+    padding: 16px 16px 20px;
+  }
+
+  .platform-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .guide-steps {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .guide-arrow {
+    transform: rotate(90deg);
+    padding-top: 0;
+    width: 100%;
+    height: 30px;
+  }
+
+  .method-switcher span {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .qrcode-method {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .qrcode-method-icon {
+    margin: 0 auto;
+  }
+}
+
+/* ══════════════════════════════════════════
+   暗色模式
+   ══════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  .platform-card {
+    background: #1c1c1e;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .platform-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .platform-name {
+    color: #e0e0e0;
+  }
+
+  .status-badge.disconnected {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #777;
+  }
+
+  .method-switcher {
+    background: #2a2a2c;
+  }
+
+  .method-switcher span {
+    color: #999;
+  }
+
+  .method-switcher span.active {
+    background: #3a3a3c;
+    color: #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .guide-step {
+    background: #2a2a2c;
+    border-color: #38383a;
+  }
+
+  .cookie-textarea {
+    background: #2a2a2c !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+  }
+
+  .cookie-textarea:focus {
+    background: #333 !important;
+  }
+
+  kbd.kbd {
+    background: #333;
+    border-color: #555;
+    color: #ccc;
+  }
+
+  .code-snippet {
+    background: #111;
+  }
+
+  .status-badge.connected {
+    background: rgba(82, 196, 26, 0.08);
+    color: #73d13d;
+    border-color: rgba(82, 196, 26, 0.15);
+  }
+
+  .bindings-section {
+    background: #1c1c1e;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .section-title {
+    color: #e0e0e0;
+  }
+
+  .binding-platform {
+    color: #e0e0e0;
+  }
+
+  .binding-nickname {
+    color: #888;
+  }
+
+  .binding-item,
+  .binding-row {
+    background: #2a2a2c;
+    border-color: #38383a;
+  }
+
+  .binding-item:hover,
+  .binding-row:hover {
+    background: #323234;
+  }
+
+  .logged-in-name {
+    color: #ccc;
+  }
+
+  .status-dot.disconnected {
+    background: #555;
+  }
+}

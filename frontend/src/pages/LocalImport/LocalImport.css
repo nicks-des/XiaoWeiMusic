@@ -1,0 +1,179 @@
+.local-import-page {
+  padding: 0;
+}
+
+.import-header {
+  margin-bottom: 24px;
+}
+
+.import-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.import-header p {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.local-import-page .ant-upload-drag {
+  border: 2px dashed rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 40px 20px;
+  transition: all 0.2s;
+}
+
+.local-import-page .ant-upload-drag:hover {
+  border-color: #1db954;
+  background: rgba(29,185,84,0.05);
+}
+
+.local-import-page .ant-upload-drag .ant-upload-drag-icon {
+  margin-bottom: 16px;
+}
+
+.local-import-page .ant-upload-drag .ant-upload-drag-icon .anticon {
+  font-size: 48px;
+  color: #1db954;
+}
+
+.local-import-page .ant-upload-drag .ant-upload-text {
+  font-size: 16px;
+  color: #fff;
+}
+
+.local-import-page .ant-upload-drag .ant-upload-hint {
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.imported-list {
+  margin-top: 32px;
+}
+
+.imported-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.imported-list-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.li-action-btn {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.li-action-btn:hover {
+  color: #1db954;
+  background: rgba(29, 185, 84, 0.1);
+}
+
+.imported-list .ant-table {
+  background: transparent;
+}
+
+.imported-list .ant-table-thead > tr > th {
+  background: rgba(255,255,255,0.05);
+  color: #b3b3b3;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.imported-list .ant-table-tbody > tr:hover > td {
+  background: rgba(255,255,255,0.05);
+}
+
+.imported-list .ant-table-tbody > tr > td {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #fff;
+}
+
+/* ── 目录扫描 ── */
+.scan-section {
+  margin-bottom: 16px;
+}
+
+.scan-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.scan-input-row .ant-input {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+.scan-input-row .ant-input:focus,
+.scan-input-row .ant-input:hover {
+  border-color: #1db954;
+}
+
+/* ── 本地歌曲列表 ── */
+.local-song-list {
+  margin-top: 24px;
+}
+
+.local-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.local-list-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.local-song-list .ant-table {
+  background: transparent;
+}
+
+.local-song-list .ant-table-thead > tr > th {
+  background: rgba(255,255,255,0.05);
+  color: #b3b3b3;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.local-song-list .ant-table-tbody > tr:hover > td {
+  background: rgba(255,255,255,0.05);
+}
+
+.local-song-list .ant-table-tbody > tr > td {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #fff;
+}
+
+.local-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.local-empty p {
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+.local-empty-hint {
+  font-size: 13px !important;
+  color: #555;
+}

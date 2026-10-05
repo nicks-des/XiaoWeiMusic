@@ -1,0 +1,126 @@
+.visualizer-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  width: 420px;
+  height: 360px;
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 12px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.visualizer-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #282828;
+  flex-shrink: 0;
+}
+
+.visualizer-popup-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.visualizer-popup-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.visualizer-volume-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.visualizer-icon {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.visualizer-volume-slider .ant-slider-rail {
+  background: #444;
+}
+
+.visualizer-volume-slider .ant-slider-track {
+  background: #1db954;
+}
+
+.visualizer-volume-slider .ant-slider-handle {
+  border-color: #1db954;
+}
+
+.vis-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.vis-btn:hover {
+  background: #282828;
+  color: #fff;
+}
+
+.vis-btn-active {
+  color: #1db954;
+}
+
+.vis-close-btn:hover {
+  color: #ff4d4f;
+}
+
+.visualizer-settings-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 16px;
+  background: #121212;
+  border-bottom: 1px solid #282828;
+  flex-shrink: 0;
+}
+
+.vis-setting-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.vis-setting-item .ant-select-selector {
+  background: #282828 !important;
+  border-color: #444 !important;
+  color: #fff !important;
+}
+
+.visualizer-canvas-wrap {
+  flex: 1;
+  min-height: 0;
+  background: #000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .visualizer-popup {
+    width: 100vw;
+    right: 0;
+    border-radius: 12px 12px 0 0;
+    height: 300px;
+  }
+}

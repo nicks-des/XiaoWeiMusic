@@ -1,0 +1,68 @@
+{
+  "name": "musicplayer-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently --kill-others \"node ../backend/server.js\" \"wait-on http://localhost:3000 && vite --mode electron\" \"wait-on http://localhost:5173 && node node_modules/electron/cli.js .\"",
+    "electron:build": "vite build --mode electron && electron-builder --dir",
+    "electron:pack": "vite build --mode electron && electron-builder",
+    "electron:preview": "vite build --mode electron && concurrently --kill-others \"node ../backend/server.js\" \"wait-on http://localhost:3000 && node node_modules/electron/cli.js .\"",
+    "postelectron:build": "node -e \"const fs=require('fs');const p=require('path');const src='../backend/node_modules';const dest='release/win-unpacked/resources/backend/node_modules';if(fs.existsSync(src)&&!fs.existsSync(dest)){require('child_process').execSync('xcopy /E /I /Y '+p.resolve(src)+' '+p.resolve(dest),{stdio:'ignore'})}\"",
+    "postelectron:pack": "node -e \"const fs=require('fs');const p=require('path');const src='../backend/node_modules';const dest='release/win-unpacked/resources/backend/node_modules';if(fs.existsSync(src)&&!fs.existsSync(dest)){require('child_process').execSync('xcopy /E /I /Y '+p.resolve(src)+' '+p.resolve(dest),{stdio:'ignore'})}\""
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@reduxjs/toolkit": "^2.1.0",
+    "antd": "^5.13.0",
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1",
+    "vite": "^5.0.12",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.musicplayer.app",
+    "productName": "Music Player",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "icon": "electron/icons/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!node_modules/**"
+        ]
+      }
+    ]
+  }
+}
